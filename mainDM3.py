@@ -152,7 +152,8 @@ def main(args=get_args()):
     epsilon_steps = 5
     # writer = SummaryWriter("GDMTD3")
     max_episode_steps = 150
-    
+
+    log_file = "training_log.csv"
     if os.path.exists(log_file):
         os.remove(log_file)
 
@@ -224,14 +225,14 @@ def main(args=get_args()):
             writer = csv.writer(f)
             writer.writerow([
                 i_episode,                       
-                Reward/150,                   
+                Reward/t,                   
                 env.avg_A,                    
                 env.avg_E,                    
                 Bmin,                         
                 energy_buffer_capacity        
             ])
         # print("Episode:",i_episode,"Reward:",Reward/100, "Rate:",Rate/100, "Power",Power/100)
-        print("Episode:", i_episode, "Reward:", Reward / 150)
+        print("Episode:", i_episode, "Reward:", Reward / t)
         print("------------------------------------------------------------------------------------------------")
 
 
